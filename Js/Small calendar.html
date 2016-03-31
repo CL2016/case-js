@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小日历</title>
+    <style type="text/css">
+        body,ul,li,h2,p{margin:0px;padding:0xp;}
+        #div1{width:200px;height:200px;background:#ccc;}
+        .calendar{width:240px;height:345px;background:#ccc;margin:auto;}
+        .calendar ul{list-style:none;width:232px;height:260px;margin:0px;padding:0px;}
+
+        .calendar ul li{width:45px;height:65px;background:#333;float:left;display:inline;
+            margin-left:11px;margin-top:10px;border:1px solid #ccc;text-align:center;color:#FFF;}
+        .calendar ul li:hover{border:1px solid #000;}
+        .text{background:#F96;margin:10px;padding-bottom:10px;height:45px;}
+        .text h2{display:inline;}
+        .active{background:#FFF !important;color:#C03 !important;}
+
+    </style>
+    <script>
+        window.onload=function(){
+            var oDiv=document.getElementById('tab');
+            var aLi=oDiv.getElementsByTagName('li');
+            var oTxt=oDiv.getElementsByTagName('div')[0];
+
+            var arr =['1月1日元旦,又是新的一年了','2月14日情人节','3月12日植树节',
+                '4月4日清明节','5月1日国际劳动节','6月1日国际儿童节',
+                '7月1日建党节','8月1日中国人民解放军建军节','9月15日中秋节',
+                '10月1日中华人民共和国国庆节','11月24日感恩节','12月25日圣诞节'];
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].index=i;
+                aLi[i].onmouseover=function(){
+                    for(var i=0;i<aLi.length;i++){
+                        aLi[i].className='';
+                    }
+                    this.className='active';
+                    oTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="tab" class="calendar">
+        <ul>
+            <li class="active"><h2>1</h2><p>JAN</p></li>
+            <li><h2>2</h2><p>FER</p></li>
+            <li><h2>3</h2><p>MAR</p></li>
+            <li><h2>4</h2><p>APR</p></li>
+            <li><h2>5</h2><p>MAY</p></li>
+            <li><h2>6</h2><p>JUN</p></li>
+            <li><h2>7</h2><p>JUL</p></li>
+            <li><h2>8</h2><p>AUG</p></li>
+            <li><h2>9</h2><p>SEP</p></li>
+            <li><h2>10</h2><p>OCT</p></li>
+            <li><h2>11</h2><p>NOV</p></li>
+            <li><h2>12</h2><p>DEC</p></li>
+        </ul>
+        <div class="text">
+            <h2>1月活动</h2>
+            <p>又是新的一年了</p>
+        </div>
+    </div>
+
+</body>
+</html>
